@@ -1,0 +1,98 @@
+/* Стиль для карточки фильма */
+.movie-card {
+  display: flex; /* Горизонтальное расположение */
+  flex-direction: row;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  height: auto; /* Автоматическая высота */
+  text-align: left;
+}
+
+/* Стиль для постера фильма */
+.movie-card__poster {
+  width: 150px; /* Фиксированная ширина */
+  height: 225px; /* Фиксированная высота */
+  object-fit: cover; /* Обрезает изображение, чтобы оно заполнило область */
+}
+
+/* Стиль для контента карточки */
+.movie-card__content {
+  box-sizing: border-box;
+  flex: 1; /* Занимает оставшееся пространство */
+  padding: 16px; /* Отступ от картинки */
+  display: flex;
+  flex-direction: column; /* Элементы располагаются вертикально */
+  justify-content: space-between; /* Распределяем элементы равномерно */
+}
+
+/* Стиль для заголовка и рейтинга */
+.movie-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Стиль для названия фильма */
+.movie-card__title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  white-space: normal; /* Перенос текста */
+  overflow: hidden; /* Обрезаем текст */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+  flex: 1; /* Занимает оставшееся пространство */
+  max-width: calc(100% - 20px); /* Ограничиваем ширину, чтобы кружочек не уплывал */
+}
+
+/* Стиль для круглого рейтинга */
+.movie-card__rating-circle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  margin-left: 8px; /* Отступ от заголовка */
+  flex-shrink: 0; /* Запрещаем сжатие */
+}
+
+/* Стиль для жанров */
+.movie-card__genres {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.movie-card__genres span {
+  background-color: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Стиль для обзора */
+.movie-card__overview {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+  box-sizing: border-box;
+  line-height: 1.4; /* Улучшаем читаемость */
+  overflow: hidden; /* Обрезаем текст */
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Ограничение до 3 строк */
+  -webkit-box-orient: vertical;
+}
+
+/* Стиль для звезд */
+.ant-rate {
+  margin-top: auto; /* Размещаем в самом низу */
+  justify-content: center; /* Центрируем звезды */
+}
