@@ -4,7 +4,7 @@ import { Row, Col, Spin, Alert, Input, Pagination } from 'antd';
 import debounce from 'lodash.debounce';
 import MovieCard from '../movie-card/movie-card';
 import { searchMovies } from '../../api/movies';
-import './movie-list.css'; // Импортируем стили
+import './movie-list.css';
 
 class MovieList extends React.Component {
   constructor(props) {
@@ -17,22 +17,20 @@ class MovieList extends React.Component {
       currentPage: 1,
       totalPages: 0,
     };
-    this.debouncedSearch = debounce(this.handleSearch, 500); // Добавляем debounce
+    this.debouncedSearch = debounce(this.handleSearch, 500);
   }
 
-  // Метод для обработки изменения ввода
   handleInputChange = (e) => {
     const query = e.target.value.trim();
-    this.setState({ query }); // Обновляем состояние
+    this.setState({ query });
 
     if (query.length > 2) {
-      this.debouncedSearch(query); // Вызываем debouncedSearch
+      this.debouncedSearch(query);
     } else {
-      this.setState({ movies: [], totalPages: 0 }); // Очищаем результаты поиска
+      this.setState({ movies: [], totalPages: 0 });
     }
   };
 
-  // Метод для поиска фильмов
   handleSearch = async (query, page = 1) => {
     if (!query) {
       this.setState({ movies: [], totalPages: 0 });
@@ -56,12 +54,10 @@ class MovieList extends React.Component {
     }
   };
 
-  // Метод для обработки смены страницы
   handlePageChange = (page) => {
     this.handleSearch(this.state.query, page);
   };
 
-  // Метод для обработки оценки фильма
   handleRate = async (movieId, rating) => {
     try {
       const success = await this.props.onRate(movieId, rating);

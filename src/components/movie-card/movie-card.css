@@ -1,34 +1,30 @@
-/* Стиль для карточки фильма */
 .movie-card {
-  display: flex; /* Горизонтальное расположение */
+  display: flex;
   flex-direction: row;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  height: auto; /* Автоматическая высота */
+  height: auto;
   text-align: left;
 }
 
-/* Стиль для постера фильма */
 .movie-card__poster {
-  width: 150px; /* Фиксированная ширина */
-  height: 225px; /* Фиксированная высота */
-  object-fit: cover; /* Обрезает изображение, чтобы оно заполнило область */
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
 }
 
-/* Стиль для контента карточки */
 .movie-card__content {
   box-sizing: border-box;
-  flex: 1; /* Занимает оставшееся пространство */
-  padding: 16px; /* Отступ от картинки */
+  flex: 1;
+  padding: 16px;
   display: flex;
-  flex-direction: column; /* Элементы располагаются вертикально */
-  justify-content: space-between; /* Распределяем элементы равномерно */
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Стиль для заголовка и рейтинга */
 .movie-card__header {
   display: flex;
   justify-content: space-between;
@@ -36,19 +32,17 @@
   margin-bottom: 8px;
 }
 
-/* Стиль для названия фильма */
 .movie-card__title {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-  white-space: normal; /* Перенос текста */
-  overflow: hidden; /* Обрезаем текст */
-  text-overflow: ellipsis; /* Добавляем многоточие */
-  flex: 1; /* Занимает оставшееся пространство */
-  max-width: calc(100% - 20px); /* Ограничиваем ширину, чтобы кружочек не уплывал */
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  max-width: calc(100% - 20px);
 }
 
-/* Стиль для круглого рейтинга */
 .movie-card__rating-circle {
   display: inline-block;
   width: 30px;
@@ -59,11 +53,10 @@
   text-align: center;
   line-height: 30px;
   font-weight: bold;
-  margin-left: 8px; /* Отступ от заголовка */
-  flex-shrink: 0; /* Запрещаем сжатие */
+  margin-left: 8px;
+  flex-shrink: 0;
 }
 
-/* Стиль для жанров */
 .movie-card__genres {
   display: flex;
   gap: 8px;
@@ -78,21 +71,19 @@
   color: #333;
 }
 
-/* Стиль для обзора */
 .movie-card__overview {
   font-size: 14px;
   color: #333;
   margin-bottom: 8px;
   box-sizing: border-box;
-  line-height: 1.4; /* Улучшаем читаемость */
-  overflow: hidden; /* Обрезаем текст */
+  line-height: 1.4;
+  overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Ограничение до 3 строк */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
-/* Стиль для звезд */
 .ant-rate {
-  margin-top: auto; /* Размещаем в самом низу */
-  justify-content: center; /* Центрируем звезды */
+  margin-top: auto;
+  justify-content: center;
 }

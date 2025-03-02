@@ -1,9 +1,7 @@
-/* Стиль для списка оцененных фильмов */
 .rated-movies {
   padding: 20px;
 }
 
-/* Стиль для загрузки */
 .rated-movies__loading {
   display: flex;
   justify-content: center;

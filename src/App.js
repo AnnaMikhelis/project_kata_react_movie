@@ -1,5 +1,5 @@
 import MovieList from './components/movie-list/movie-list';
-import React, { useState, useEffect, useRef } from 'react'; // Добавляем useRef
+import React, { useState, useEffect, useRef } from 'react';
 import { Tabs, Input } from 'antd';
 import { createGuestSession, rateMovie, getRatedMovies } from './api/movies';
 import { GenresProvider } from './context/GenresContext';
@@ -12,7 +12,6 @@ const App = () => {
   const [sessionId, setSessionId] = useState(null);
   const [refreshRated, setRefreshRated] = useState(false);
 
-  // Создаём ref для MovieList
   const movieListRef = useRef(null);
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const App = () => {
       const success = await rateMovie(movieId, rating, sessionId);
       if (success) {
         console.log(`Movie ${movieId} rated successfully with ${rating}`);
-        setRefreshRated((prev) => !prev); // Переключаем флаг для обновления данных
+        setRefreshRated((prev) => !prev);
       } else {
         console.error('Failed to rate the movie');
       }
@@ -44,16 +43,16 @@ const App = () => {
   return (
     <GenresProvider>
       <div className="app">
-        {/* Заголовок */}
+        {/* хедер */}
         <h1>Movie Search App</h1>
 
         {/* Контейнер для табов */}
         <div className="tabs-container">
           <Tabs defaultActiveKey="1">
-            {/* Первый таб: Поиск фильмов */}
+            {/* 1 таб */}
             <TabPane tab="Search Movies" key="1">
               <div className="movie-list-container">
-                {/* Поле поиска */}
+                {/* поиск */}
                 <Input
                   placeholder="Search movies..."
                   onChange={(e) => {
@@ -63,16 +62,16 @@ const App = () => {
                   }}
                   style={{ marginBottom: 20, width: '100%' }}
                 />
-                {/* Компонент MovieList */}
+                {/* MovieList */}
                 <MovieList
-                  ref={movieListRef} // Присваиваем ref
+                  ref={movieListRef}
                   sessionId={sessionId}
                   onRate={handleRate}
                 />
               </div>
             </TabPane>
 
-            {/* Второй таб: Оценённые фильмы */}
+            {/* 2 таб */}
             <TabPane tab="Rated Movies" key="2">
               <div className="movie-list-container">
                 <RatedMovies

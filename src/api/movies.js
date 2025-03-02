@@ -2,7 +2,6 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 const BEARER_TOKEN =
   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2Y2I0YzZjZjEwNzVmMTg4OTM0YTc1YTRmMWY3YjI1YyIsIm5iZiI6MTczODc3MzY2OC42MjQsInN1YiI6IjY3YTM5NGE0ZWUzOTMyYTY3MjlmZTg0NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OGhF5cdeuGRa3A1FEdMBCQV6dtHckipYP1xM5_GaZcg';
 
-// Создание гостевой сессии
 export const createGuestSession = async () => {
   const options = {
     method: 'GET',
@@ -28,7 +27,6 @@ export const createGuestSession = async () => {
   }
 };
 
-// Голосование за фильм
 export const rateMovie = async (movieId, rating, sessionId) => {
   const options = {
     method: 'POST',
@@ -56,7 +54,6 @@ export const rateMovie = async (movieId, rating, sessionId) => {
   }
 };
 
-// Получение оцененных фильмов
 export const getRatedMovies = async (sessionId, page = 1) => {
   const options = {
     method: 'GET',
@@ -82,7 +79,6 @@ export const getRatedMovies = async (sessionId, page = 1) => {
   }
 };
 
-// Поиск фильмов
 export const searchMovies = async (query, sessionId) => {
   const options = {
     method: 'GET',
@@ -93,7 +89,6 @@ export const searchMovies = async (query, sessionId) => {
   };
 
   try {
-    // Получаем список фильмов
     const searchResponse = await fetch(
       `${BASE_URL}/search/movie?query=${encodeURIComponent(query)}`,
       options
@@ -103,7 +98,6 @@ export const searchMovies = async (query, sessionId) => {
     }
     const searchData = await searchResponse.json();
 
-    // Получаем оцененные фильмы
     const ratedResponse = await fetch(
       `${BASE_URL}/guest_session/${sessionId}/rated/movies`,
       options
@@ -113,7 +107,6 @@ export const searchMovies = async (query, sessionId) => {
     }
     const ratedData = await ratedResponse.json();
 
-    // Создаем объект для быстрого поиска оценок по ID фильма
     const ratedMoviesMap = {};
     if (ratedData.results) {
       ratedData.results.forEach((movie) => {
@@ -121,10 +114,9 @@ export const searchMovies = async (query, sessionId) => {
       });
     }
 
-    // Объединяем данные
     const moviesWithRatings = searchData.results.map((movie) => ({
       ...movie,
-      userRating: ratedMoviesMap[movie.id] || null, // Добавляем оценку пользователя
+      userRating: ratedMoviesMap[movie.id] || null,
     }));
 
     return {

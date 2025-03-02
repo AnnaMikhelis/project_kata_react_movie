@@ -1,4 +1,3 @@
-/* Общий стиль для приложения */
 .app {
   text-align: center;
   font-family: Arial, sans-serif;
@@ -7,7 +6,6 @@
   padding: 20px;
 }
 
-/* Стиль для заголовка */
 .app h1 {
   font-size: 36px;
   font-weight: bold;
@@ -16,17 +14,14 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Стиль для контейнера табов */
 .tabs-container {
-  
-  margin: 0 auto; /* Центрируем табы */
+  margin: 0 auto; 
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
-/* Стиль для табов */
 .ant-tabs-tab {
   font-size: 16px;
   font-weight: bold;
@@ -41,7 +36,6 @@
   background-color: #1890ff;
 }
 
-/* Стиль для контейнера списка фильмов */
 .movie-list-container {
-  margin-top: 20px; /* Отступ между табами и списком фильмов */
+  margin-top: 20px; 
 }

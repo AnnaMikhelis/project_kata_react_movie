@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import PropTypes from 'prop-types'; // Импортируем PropTypes
+import PropTypes from 'prop-types';
 import { fetchGenres } from '../api/genres';
 
 export const GenresContext = createContext();
@@ -24,7 +24,6 @@ export const GenresProvider = ({ children }) => {
   );
 };
 
-// Определяем типы пропсов
 GenresProvider.propTypes = {
-  children: PropTypes.node.isRequired, // Указываем, что children должен быть узлом React
+  children: PropTypes.node.isRequired,
 };

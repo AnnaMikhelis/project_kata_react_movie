@@ -3,7 +3,7 @@ import { Row, Col, Spin, Alert, Pagination } from 'antd';
 import PropTypes from 'prop-types';
 import MovieCard from '../movie-card/movie-card';
 import { getRatedMovies } from '../../api/movies';
-import './RatedMovies.css'; // Импортируем стили
+import './RatedMovies.css';
 
 const RatedMovies = ({ sessionId, refreshRated }) => {
   const [movies, setMovies] = useState([]);
@@ -51,7 +51,7 @@ const RatedMovies = ({ sessionId, refreshRated }) => {
                 genreIds={movie.genre_ids}
                 voteAverage={movie.vote_average}
                 userRating={movie.userRating}
-                onRate={() => {}} // Рейтинг уже сохранён
+                onRate={() => {}}
                 id={movie.id}
               />
             </Col>

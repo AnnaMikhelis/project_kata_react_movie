@@ -1,5 +1,5 @@
 import React from 'react';
-import 'antd/dist/reset.css'; // Стили Ant Design
+import 'antd/dist/reset.css';
 
 import ReactDOM from 'react-dom/client';
 import App from './App';
